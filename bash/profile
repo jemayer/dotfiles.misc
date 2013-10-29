@@ -1,0 +1,9 @@
+# Extend $PATH to /usr/local (e.g. for Homebrew installations)
+PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export PATH
+
+# Language settings
+export LC_ALL=en_US.UTF-8
+
+# Local additions
+[ -f ~/.profile.local ] && source ~/.profile.local

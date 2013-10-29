@@ -1,0 +1,43 @@
+#### Linux specifix aliases ####
+if [ $(uname) == "Linux" ] ; then
+    # With GNU ls, e.g. on Linux, ls shows colors if --color is passed on
+    # the command line. The actual colors are configured through the LS_COLORS
+    # environment variable, which can be set with the dircolors command
+    # (built-in defaults are used if this variable is not set).
+    if [ -x /usr/bin/dircolors ]; then
+        eval "`dircolors -b`"
+        alias ls='ls --color=auto'
+        alias grep='grep --color=auto'
+        alias egrep='egrep --color=auto'
+    fi
+fi
+
+#### OSX specific aliases ####
+if [ $(uname) == "Darwin" ] ; then
+    # On FreeBSD and Mac OS X, ls shows colors if the CLICOLOR environment
+    # variable is set or if -G is passed on the command line. The actual
+    # colors are configured through the LSCOLORS environment variable
+    # (built-in defaults are used if this variable is not set).
+    export CLICOLOR=1
+    export LSCOLORS=gxfxcxdxbxegedabagacad
+
+    # Color grep for OSX
+    alias grep='GREP_COLOR="1;37;41" LANG=C grep --color=auto'
+
+    alias flushdns='sudo dscacheutil -flushcache'
+
+    # Sorry, no choo choo.
+    alias sl='"/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" -n .'
+fi
+
+#### General aliases ####
+
+# More ls aliases
+alias ll='ls -l'
+alias la='ls -al'
+
+# Default SSH
+alias s='ssh -p 22'
+
+#### Local additions ####
+[ -f ~/.bash_aliases.local ] && source ~/.bash_aliases.local

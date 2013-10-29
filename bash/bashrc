@@ -1,0 +1,51 @@
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+#### History related options ####
+
+# Bash history: "ignoredups" tells bash to ignore duplicates.
+# "ignorespace" tells bash to ignore commands that start with spaces.
+# If you wish to specify both values, you can just specify "ignoreboth".
+export HISTCONTROL=ignoreboth
+# For setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+# Append to the history file, don't overwrite it
+shopt -s histappend
+# Check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+#### Set a fancy prompt ####
+case "$TERM" in
+    xterm*) color_prompt=yes;;
+    screen) color_prompt=yes;;
+esac
+# Support for GIT prompt (__git_ps1)
+# Source: https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
+source ~/.git-prompt.sh
+
+if [ "$color_prompt" = yes ]; then
+    PS1='\[\e[0m\]<\[\e[32;1m\]\u\[\e[0m\]@\[\e[34;1m\]\H\[\e[0m\]> \[\e[33;1m\][\w]\[\e[0m\]\[\e[0;31m\]$(__git_ps1 " (%s)")\[\e[1;32m\]\[\e[m\]\n\$ '
+fi
+
+#### Bash completion ####
+
+# Enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+[ -f /etc/bash_completion ] && source /etc/bash_completion 
+
+# Homebrew bash completion settings.
+[ -f $(brew --prefix)/etc/bash_completion ] && source $(brew --prefix)/etc/bash_completion
+
+#### VirtualEnv for Python & Co ####
+[ -f /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
+
+#### Alias definitions ####
+[ -f ~/.bash_aliases ] && source ~/.bash_aliases
+
+#### GO specific settings ####
+export GOPATH="~/Development/Go"
+
+#### chruby, see https://github.com/postmodern/chruby ####
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+source /usr/local/opt/chruby/share/chruby/auto.sh
