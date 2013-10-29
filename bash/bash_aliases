@@ -21,12 +21,22 @@ if [ $(uname) == "Darwin" ] ; then
     export CLICOLOR=1
     export LSCOLORS=gxfxcxdxbxegedabagacad
 
-    # Color grep for OSX
+    # Color grep for OSX.
     alias grep='GREP_COLOR="1;37;41" LANG=C grep --color=auto'
 
-    alias flushdns='sudo dscacheutil -flushcache'
+    # Flush DNS cache.
+    alias flushdns='sudo killall -HUP mDNSResponder'
 
-    # Sorry, no choo choo.
+    # Rebuild finder menu, wipe duplicates
+    alias rebuildmenu='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain system -domain user'
+
+    # Reinitialize the dock.
+    alias killdock='killall -KILL Dock'
+
+    # Reinitialize the finder.
+    alias killfinder='killall -KILL Finder'
+
+    # Edit with Sublime. Sorry, no choo choo.
     alias sl='"/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" -n .'
 fi
 
