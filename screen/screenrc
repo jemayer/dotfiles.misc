@@ -1,0 +1,5 @@
+hardstatus alwayslastline "%{=b wR} %H%{= wk} %=[ Load Average: %l ]%=%{-}%LD, %LM %d, %Y - %c:%s "
+caption always "%?%F%{= BY} %:%{= wK} %?%-Lw%{!r} %n%f %t %{-}%+Lw %=%?%h %?"
+defc1 off
+defutf8 on
+defscrollback 10000
