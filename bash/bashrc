@@ -1,8 +1,22 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+#### Miscellaneous settings ####
+export EDITOR=vim
+export GITHUB_USER="jemayer"
+
 #### History related options ####
 
+#The history "file" is not updated as you type the commands. The commands get
+#stored in a "list" separately (accessed by the history command). The number
+#of these stored commands is controlled by HISTSIZE value. When the shell
+#(interactive) exits, the last $HISTSIZE lines are copied/appended to
+#$HISTFILE from that "list". If HISTFILESIZE is set, then after this
+#operation, it is ensured that only $HISTFILESIZE lines (latest) exist
+#in $HISTFILE . And when the shell starts, the "list" is initialized
+#from $HISTFILE upto a maximum of $HISTSIZE commands.
+export HISTSIZE=1000
+export HISTFILESIZE=2000
 # Bash history: "ignoredups" tells bash to ignore duplicates.
 # "ignorespace" tells bash to ignore commands that start with spaces.
 # If you wish to specify both values, you can just specify "ignoreboth".
@@ -24,9 +38,12 @@ esac
 # Support for GIT prompt (__git_ps1)
 # Source: https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
 if [ "$color_prompt" = yes ] && [ -f ~/.git-prompt.sh ]; then
+    export CLICOLOR=1
+    export GIT_PS1_SHOWDIRTYSTATE=1
     source ~/.git-prompt.sh
     PS1='\[\e[0m\]<\[\e[32;1m\]\u\[\e[0m\]@\[\e[34;1m\]\H\[\e[0m\]> \[\e[33;1m\][\w]\[\e[0m\]\[\e[0;31m\]$(__git_ps1 " (%s)")\[\e[1;32m\]\[\e[m\]\n\$ '
 elif [ "$color_prompt" = yes ]; then
+    export CLICOLOR=1
     PS1='\[\e[0m\]<\[\e[32;1m\]\u\[\e[0m\]@\[\e[34;1m\]\H\[\e[0m\]> \[\e[33;1m\][\w]\[\e[0m\]\n\$ '
 fi
 
@@ -35,7 +52,7 @@ fi
 # Enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-[ -f /etc/bash_completion ] && source /etc/bash_completion 
+[ -f /etc/bash_completion ] && source /etc/bash_completion
 
 # Homebrew bash completion settings.
 [ $(which brew) ] && HOMEBREW_PREFIX=$(brew --prefix)
