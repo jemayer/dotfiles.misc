@@ -23,10 +23,11 @@ case "$TERM" in
 esac
 # Support for GIT prompt (__git_ps1)
 # Source: https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
-source ~/.git-prompt.sh
-
-if [ "$color_prompt" = yes ]; then
+if [ "$color_prompt" = yes ] && [ -f ~/.git-prompt.sh ]; then
+    source ~/.git-prompt.sh
     PS1='\[\e[0m\]<\[\e[32;1m\]\u\[\e[0m\]@\[\e[34;1m\]\H\[\e[0m\]> \[\e[33;1m\][\w]\[\e[0m\]\[\e[0;31m\]$(__git_ps1 " (%s)")\[\e[1;32m\]\[\e[m\]\n\$ '
+elif [ "$color_prompt" = yes ]; then
+    PS1='\[\e[0m\]<\[\e[32;1m\]\u\[\e[0m\]@\[\e[34;1m\]\H\[\e[0m\]> \[\e[33;1m\][\w]\[\e[0m\]\n\$ '
 fi
 
 #### Bash completion ####
