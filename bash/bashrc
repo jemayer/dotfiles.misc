@@ -37,7 +37,7 @@ fi
 [ -f /etc/bash_completion ] && source /etc/bash_completion 
 
 # Homebrew bash completion settings.
-HOMEBREW_PREFIX=$(brew --prefix)
+$(which brew) && HOMEBREW_PREFIX=$(brew --prefix)
 [ -f ${HOMEBREW_PREFIX}/etc/bash_completion ] && source ${HOMEBREW_PREFIX}/etc/bash_completion
 
 #### VirtualEnv for Python & Co ####
@@ -52,7 +52,7 @@ export GOPATH="~/Development/Go"
 #### chruby, see https://github.com/postmodern/chruby ####
 
 # Managed by Homebrew.
-if [ -n $HOMEBREW_PREFIX ] ; then
+if [ -n "${HOMEBREW_PREFIX}" ] ; then
     source /${HOMEBREW_PREFIX}/opt/chruby/share/chruby/chruby.sh
     source /${HOMEBREW_PREFIX}/opt/chruby/share/chruby/auto.sh
 fi
