@@ -37,7 +37,7 @@ fi
 [ -f /etc/bash_completion ] && source /etc/bash_completion 
 
 # Homebrew bash completion settings.
-$(which brew) && HOMEBREW_PREFIX=$(brew --prefix)
+[ $(which brew) ] && HOMEBREW_PREFIX=$(brew --prefix)
 [ -f ${HOMEBREW_PREFIX}/etc/bash_completion ] && source ${HOMEBREW_PREFIX}/etc/bash_completion
 
 #### VirtualEnv for Python & Co ####
