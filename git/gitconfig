@@ -1,42 +1,50 @@
 [user]
-    name = Jens Mayer
-    email = mail@jensmayer.de
+		  name = Jens Mayer
+		  email = mail@jensmayer.de
 
 [core]
-    repositoryformatversion = 0
-    filemode = true
-    bare = false
-    logallrefupdates = true
-    warnAmbiguousRefs = false
+		  whitespace = trailing-space,space-before-tab,indent-with-non-tab
+		  autocrlf = input
+		  repositoryformatversion = 0
+		  filemode = true
+		  bare = false
+		  logallrefupdates = true
+		  warnAmbiguousRefs = false
 
 [color]
-    diff = auto
-    status = auto
-    branch = auto
+		  ui = true
+		  diff = auto
+		  status = auto
+		  branch = auto
+
+[log]
+		  decorate = true
 
 [branch]
-    autosetuprebase = always
+		  autosetuprebase = always
 
 [diff]
-    renames = true
+		  renames = true
 
 [push]
-    default = tracking
+		  default = tracking
 
 [alias]
-    changes=diff --name-status -r
-    st = status
-    ci = commit
-    br = branch
-    co = checkout
-    df = diff
-    lg = log -p
-    cues = blame
-    elog = log  --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-    starecopu = "!sh -c 'git stash && git pull --rebase && git stash pop && git commit -am \"$0\" && git push'"
+		  changes=diff --name-status -r
+		  st = status
+		  ci = commit
+		  br = branch
+		  co = checkout
+		  df = diff
+		  lg = log -p
+		  cues = blame
+		  elog = log  --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+		  starecopu = "!sh -c 'git stash && git pull --rebase && git stash pop && git commit -am \"$0\" && git push'"
 
 [receive]
-    denyNonFastForwards = true
+		  denyNonFastForwards = true
 
 [rerere]
-    enabled = 1
+		  enabled = 1
+
+# vim: set ts=4 sts=4 sw=4 noet:
