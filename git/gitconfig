@@ -1,0 +1,42 @@
+[user]
+    name = Jens Mayer
+    email = mail@jensmayer.de
+
+[core]
+    repositoryformatversion = 0
+    filemode = true
+    bare = false
+    logallrefupdates = true
+    warnAmbiguousRefs = false
+
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+
+[branch]
+    autosetuprebase = always
+
+[diff]
+    renames = true
+
+[push]
+    default = tracking
+
+[alias]
+    changes=diff --name-status -r
+    st = status
+    ci = commit
+    br = branch
+    co = checkout
+    df = diff
+    lg = log -p
+    cues = blame
+    elog = log  --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    starecopu = "!sh -c 'git stash && git pull --rebase && git stash pop && git commit -am \"$0\" && git push'"
+
+[receive]
+    denyNonFastForwards = true
+
+[rerere]
+    enabled = 1
