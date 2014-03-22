@@ -1,5 +1,9 @@
 # Extend $PATH to /usr/local (e.g. for Homebrew installations)
 PATH=/usr/local/bin:/usr/local/sbin:$PATH
+# PHP binary builds for OSX  from http://php-osx.liip.ch
+if [ $(uname) == "Darwin" ] ; then
+  PATH=/usr/local/php5/bin:$PATH
+fi
 export PATH
 
 # Language settings
