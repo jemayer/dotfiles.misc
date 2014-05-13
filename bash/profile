@@ -2,7 +2,7 @@
 PATH=/usr/local/bin:/usr/local/sbin:$PATH
 # PHP binary builds for OSX from http://php-osx.liip.ch
 if [ $(uname) == "Darwin" ] ; then
-  PATH=/usr/local/php5/bin:$PATH
+  PATH=/usr/local/php5/bin:$PATH:/usr/local/opt/go/libexec/bin
 fi
 export PATH
 
