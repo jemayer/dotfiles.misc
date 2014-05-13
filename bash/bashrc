@@ -65,7 +65,7 @@ fi
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
 
 #### GO specific settings ####
-export GOPATH="~/Development/Go"
+export GOPATH="$HOME/Development/Go"
 
 #### chruby, see https://github.com/postmodern/chruby ####
 
