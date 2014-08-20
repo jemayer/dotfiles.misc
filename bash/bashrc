@@ -1,9 +1,8 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-#### Miscellaneous settings ####
-export EDITOR=vim
-export GITHUB_USER="jemayer"
+# Load shell agnostic rc files
+[ -f ~/.shellrc ] && source ~/.shellrc
 
 #### History related options ####
 
@@ -60,13 +59,6 @@ fi
 
 #### VirtualEnv for Python & Co ####
 [ -f /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
-
-#### Alias definitions ####
-[ -f ~/.shell_aliases ] && source ~/.shell_aliases
-[ -f ~/.aliases_local ] && source ~/.aliases_local
-
-#### GO specific settings ####
-export GOPATH="$HOME/Development/Go"
 
 #### chruby, see https://github.com/postmodern/chruby ####
 

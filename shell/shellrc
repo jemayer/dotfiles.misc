@@ -1,0 +1,10 @@
+#### Miscellaneous settings ####
+export EDITOR=vim
+export GITHUB_USER="jemayer"
+
+#### Alias definitions ####
+[ -f ~/.shell_aliases ] && source ~/.shell_aliases
+[ -f ~/.aliases_local ] && source ~/.aliases_local
+
+#### GO specific settings ####
+export GOPATH="$HOME/Development/Go"
