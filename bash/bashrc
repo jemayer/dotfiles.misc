@@ -62,7 +62,8 @@ fi
 [ -f /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
 
 #### Alias definitions ####
-[ -f ~/.bash_aliases ] && source ~/.bash_aliases
+[ -f ~/.shell_aliases ] && source ~/.shell_aliases
+[ -f ~/.aliases_local ] && source ~/.aliases_local
 
 #### GO specific settings ####
 export GOPATH="$HOME/Development/Go"

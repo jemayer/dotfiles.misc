@@ -37,4 +37,5 @@ prompt_dir() {
 }
 
 # Load local aliases
+[ -f $HOME/.shell_aliases ] && source $HOME/.shell_aliases
 [ -f $HOME/.aliases_local ] && source $HOME/.aliases_local

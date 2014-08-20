@@ -1,5 +1,5 @@
 #### Linux specifix aliases ####
-if [ $(uname) == "Linux" ] ; then
+if [ $(uname) = "Linux" ] ; then
     # With GNU ls, e.g. on Linux, ls shows colors if --color is passed on
     # the command line. The actual colors are configured through the LS_COLORS
     # environment variable, which can be set with the dircolors command
@@ -13,7 +13,7 @@ if [ $(uname) == "Linux" ] ; then
 fi
 
 #### OSX specific aliases ####
-if [ $(uname) == "Darwin" ] ; then
+if [ $(uname) = "Darwin" ] ; then
     # On FreeBSD and Mac OS X, ls shows colors if the CLICOLOR environment
     # variable is set or if -G is passed on the command line. The actual
     # colors are configured through the LSCOLORS environment variable
@@ -48,6 +48,4 @@ alias la='ls -al'
 
 # Default SSH
 alias s='ssh -p 22'
-
-#### Local additions ####
-[ -f ~/.aliases_local ] && source ~/.aliases_local
+alias ..='cd ..'
