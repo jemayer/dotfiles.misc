@@ -2,7 +2,7 @@
 # Upstream: https://github.com/robbyrussell/oh-my-zsh
 # Tobi's fork: https://github.com/haelmy/oh-my-zsh
 
-# zsh setup
+# ZSH framework configuration
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="agnoster"
 
@@ -10,15 +10,13 @@ plugins=(brew chruby git screen vagrant)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-
-# set the default user, to clean up the prompt
+# Set the default user, to clean up the prompt
 DEFAULT_USER=jemayer
 
-# set directory colors to match solarized
+# Set directory colors to match solarized
 LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
-# patch the agnoster prompt
+# Patch the agnoster prompt
 directory_name() {
   if [[ -d $(git rev-parse --show-toplevel 2>/dev/null) ]]; then
     # in a git repository
@@ -37,3 +35,6 @@ directory_name() {
 prompt_dir() {
   prompt_segment blue black $(directory_name)
 }
+
+# Load local aliases
+[ -f $HOME/.aliases_local ] && source $HOME/.aliases_local

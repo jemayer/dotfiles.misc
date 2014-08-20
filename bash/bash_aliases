@@ -50,4 +50,4 @@ alias la='ls -al'
 alias s='ssh -p 22'
 
 #### Local additions ####
-[ -f ~/.bash_aliases.local ] && source ~/.bash_aliases.local
+[ -f ~/.aliases_local ] && source ~/.aliases_local
