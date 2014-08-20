@@ -1,5 +1,5 @@
-# Needs the "oh-my-zsh" configuration framework for fancyness.
-# Upstreama: https://github.com/robbyrussell/oh-my-zsh
+# Requires "oh-my-zsh" configuration framework for fancyness.
+# Upstream: https://github.com/robbyrussell/oh-my-zsh
 # Tobi's fork: https://github.com/haelmy/oh-my-zsh
 
 # zsh setup
