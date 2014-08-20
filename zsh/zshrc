@@ -1,0 +1,39 @@
+# Needs the "oh-my-zsh" configuration framework for fancyness.
+# Upstreama: https://github.com/robbyrussell/oh-my-zsh
+# Tobi's fork: https://github.com/haelmy/oh-my-zsh
+
+# zsh setup
+ZSH=$HOME/.oh-my-zsh
+ZSH_THEME="agnoster"
+
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+# Customize to your needs...
+
+# set the default user, to clean up the prompt
+DEFAULT_USER=jemayer
+
+# set directory colors to match solarized
+LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+
+# patch the agnoster prompt
+directory_name() {
+  if [[ -d $(git rev-parse --show-toplevel 2>/dev/null) ]]; then
+    # in a git repository
+    git_root=$(git rev-parse --show-toplevel)
+    physical_pwd=$(pwd -P)
+    path_in_git="${physical_pwd#$git_root}"
+    base=$(basename $git_root)
+
+    echo -n $base
+    echo -n $path_in_git
+  else
+    echo '%~'
+  fi
+}
+
+prompt_dir() {
+  prompt_segment blue black $(directory_name)
+}
