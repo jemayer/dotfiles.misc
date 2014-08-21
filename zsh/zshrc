@@ -15,8 +15,9 @@ plugins=(brew bundler chruby git python screen vagrant virtualenvwrapper)
 
 source $ZSH/oh-my-zsh.sh
 
-# Unset options from oh-my-zsh
+# Unset or set options differently from oh-my-zsh
 unsetopt share_history
+setopt interactivecomments
 
 # Set directory colors to match solarized
 LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
