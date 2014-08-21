@@ -11,9 +11,12 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="agnoster"
 
-plugins=(brew chruby git python screen vagrant virtualenvwrapper)
+plugins=(brew bundler chruby git python screen vagrant virtualenvwrapper)
 
 source $ZSH/oh-my-zsh.sh
+
+# Unset options from oh-my-zsh
+unsetopt share_history
 
 # Set directory colors to match solarized
 LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
