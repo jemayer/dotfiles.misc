@@ -14,7 +14,7 @@ plugins=(brew chruby git python screen vagrant virtualenvwrapper)
 source $ZSH/oh-my-zsh.sh
 
 # Set the default user, to clean up the prompt
-DEFAULT_USER=jemayer
+# DEFAULT_USER=jemayer
 
 # Set directory colors to match solarized
 LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
