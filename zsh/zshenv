@@ -1,4 +1,4 @@
-HOMEBREW_PREFIX=$(brew --prefix)
+[ $(which brew) ] && HOMEBREW_PREFIX=$(brew --prefix)
 
 if [[ -f $HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh ]]; then
   source $HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh
