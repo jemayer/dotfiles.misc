@@ -41,3 +41,16 @@ directory_name() {
 prompt_dir() {
   prompt_segment blue black $(directory_name)
 }
+
+# Note: ZSH $PATH configuration on OSX is a bit tricky, see:
+# - /etc/paths, /etc/paths.d
+# - http://stackoverflow.com/questions/13708719/vim-path-configuration-in-os-x
+# - http://blog.damselem.com/mac-os-x-zsh-vim-and-path/
+
+# PHP binary builds for OSX from http://php-osx.liip.ch
+if [ $(uname) = "Darwin" ] ; then
+  PATH=/usr/local/php5/bin:$PATH:/usr/local/opt/go/libexec/bin
+elif [ $(uname) = "Linux" ] ; then
+  PATH=$PATH:/usr/local/go/bin
+fi
+export PATH
