@@ -11,7 +11,7 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="agnoster"
 
-plugins=(brew bundler chruby colored-man git python screen vagrant virtualenvwrapper)
+plugins=(brew bundler chruby colored-man git screen vagrant)
 
 source $ZSH/oh-my-zsh.sh
 
