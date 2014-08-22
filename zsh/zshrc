@@ -54,3 +54,6 @@ elif [ $(uname) = "Linux" ] ; then
   PATH=$PATH:/usr/local/go/bin
 fi
 export PATH
+
+[[ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && \
+  source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
