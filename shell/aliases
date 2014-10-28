@@ -36,8 +36,9 @@ if [ $(uname) = "Darwin" ] ; then
     # Reinitialize the finder.
     alias killfinder='killall -KILL Finder'
 
-    # Edit with Sublime. Sorry, no choo choo.
-    alias sl='"/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" -n .'
+    # Show/Hide desktop icons
+    alias showicons='defaults write com.apple.finder CreateDesktop true; killall Finder'
+    alias hideicons='defaults write com.apple.finder CreateDesktop false; killall Finder'
 fi
 
 #### General aliases ####
