@@ -61,3 +61,9 @@ export PATH
 # Amazon AWS CLI tool autocompletion
 [[ -f /usr/local/share/zsh/site-functions/_aws ]] && \
   source /usr/local/share/zsh/site-functions/_aws
+
+# Virtualenv for Python
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+  export WORKON_HOME=$HOME/.virtualenvs
+  source /usr/local/bin/virtualenvwrapper.sh
+fi
