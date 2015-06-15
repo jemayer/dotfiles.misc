@@ -16,4 +16,8 @@ set message_cachedir =~/.mutt/com.jimdo.jensmayer/cache/bodies
 set certificate_file =~/.mutt/com.jimdo.jensmayer/certificates
 
 set signature =~/.mutt/signature.com.jimdo.jensmayer
-set pgp_sign_as="E19D7954"
+
+set hostname = "mbp13-jimdo.com"
+set sendmail = "/usr/local/bin/msmtp -a com.jimdo.jensmayer"
+set sendmail_wait = 0
+unset record
