@@ -1,0 +1,20 @@
+set pager_index_lines=10
+set tilde
+set reverse_alias
+set reverse_name
+set sort=threads
+set menu_scroll
+set read_inc=10
+set write_inc=10
+set index_format="%4C %Z %{%b %d} %-15.15n (%4c) %s"
+set status_format="%r %v [%?M?%M/?%m] %?n?%n new, ?%?p?%p postponed, ?%?t?%t +tagged, ?%?d?%d deleted, ?(%h:%f) %?b?%b more to go.?%> %r"
+set quote_regexp="^([A-Za-z ]+>|[]>:|}-][]>:|}-]*)"
+set pager_context=1
+set pager_stop
+unset markers
+
+ignore *
+unignore date from to cc subject x-mailer user-agent resent-from reply-to sender
+hdr_order from reply-to to cc subject date x-mailer user-agent
+mono header underline ^(From|Subject):
+mono quoted bold

@@ -1,0 +1,61 @@
+reset all   # reset all variables to system defaults.
+unhook *    # remove all hooks
+
+source ~/.mutt_credentials
+source ~/.mutt_colors
+source ~/.mutt_gpg
+source ~/.mutt_appearance
+
+set from = 'jens.mayer@gmail.com'
+set realname = 'Jens Mayer'
+set envelope_from
+
+my_hdr Priority: normal
+my_hdr X-GnuPG-Key-URL: https://keybase.io/jens/key.asc
+my_hdr X-GnuPG-Fingerprint: 8E69 264A 0C7C 0E74 3DD4 5A06 26DA 536D E19D 7954
+my_hdr X-Operating-Sytem: Apple OS X/`/usr/bin/uname -srm`
+
+# ENCODING
+set charset="utf-8"
+set locale=`echo "${LC_ALL:-${LC_TIME:-${LANG}}}"`
+set send_charset="us-ascii:iso-8859-15:utf-8"
+
+# REMOTE GMAIL FOLDERS
+set folder = 'imaps://imap.gmail.com:993'
+set spoolfile = '+INBOX'
+set postponed ='+[Google Mail]/Drafts'
+
+# LOCAL FOLDERS FOR CACHED HEADERS AND CERTIFICATES
+set header_cache =~/.mutt/cache/headers
+set message_cachedir =~/.mutt/cache/bodies
+set certificate_file =~/.mutt/certificates
+
+# COMPOSING
+set editor="/usr/bin/vim"
+set signature=~/.signature
+set edit_hdrs
+
+set date_format="!%a, %b %d, %Y at %H:%M:%S %Z"
+set attribution="* On %d, %n wrote:\n"
+
+set reply_to=ask-yes
+set fast_reply
+set include=yes
+
+# SENDING
+set allow_8bit  # Don't do any Quoted-Printable encoding on 8-bit data!
+
+# FIXME: PRINTING
+set print=ask-no
+set print_command="muttprint"
+
+# SECURING
+set move = no  #Stop asking to move read messages to mbox!
+set imap_keepalive = 900
+
+# KEYBINDINGS
+macro index gi '=INBOX' 'Go to inbox'
+
+# Documentation links
+#  https://blog.bartbania.com/raspberry_pi/consolify-your-gmail-with-mutt/
+#  http://blog.developwithpassion.com/2013/05/02/getting-up-and-running-with-a-sane-mutt-setup/
