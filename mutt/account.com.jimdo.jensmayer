@@ -1,0 +1,19 @@
+source ~/.mutt/credentials.com.jimdo.jensmayer
+
+set from = 'jens.mayer@jimdo.com'
+set realname = 'Jens Mayer'
+
+my_hdr Priority: normal
+
+set folder = 'imaps://imap.gmail.com:993'
+set spoolfile = '+INBOX'
+set postponed ='+[Google Mail]/Drafts'
+
+set status_format="[%?M?%M/?%m msgs] %?n?%n new, ?%?p?%p postponed, ?%?t?%t +tagged, ?%?d?%d deleted, ?(jens.mayer@jimdo.com:%f) %?b?%b more to go.?%> %r"
+
+set header_cache =~/.mutt/com.jimdo.jensmayer/cache/headers
+set message_cachedir =~/.mutt/com.jimdo.jensmayer/cache/bodies
+set certificate_file =~/.mutt/com.jimdo.jensmayer/certificates
+
+set signature =~/.mutt/signature.com.jimdo.jensmayer
+set pgp_sign_as="E19D7954"

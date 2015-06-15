@@ -38,8 +38,10 @@ set imap_keepalive = 900
 # FOLDER HOOKS
 folder-hook 'account.com.gmail.jensmayer' 'source ~/.mutt/account.com.gmail.jensmayer'
 folder-hook 'account.de.jensmayer.mail' 'source ~/.mutt/account.de.jensmayer.mail'
-macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account.com.gmail.jensmayer<enter><change-folder>!<enter>'
-macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account.de.jensmayer.mail<enter><change-folder>!<enter>'
+folder-hook 'account.com.jimdo.jensmayer' 'source ~/.mutt/account.com.jimdo.jensmayer'
+macro index <f1> '<sync-mailbox><enter-command>source ~/.mutt/account.com.gmail.jensmayer<enter><change-folder>!<enter>'
+macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account.de.jensmayer.mail<enter><change-folder>!<enter>'
+macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account.com.jimdo.jensmayer<enter><change-folder>!<enter>'
 bind index G imap-fetch-mail
 
 # Documentation links
