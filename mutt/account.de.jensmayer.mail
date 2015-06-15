@@ -1,0 +1,22 @@
+source ~/.mutt/credentials.de.jensmayer.mail
+
+set from = 'mail@jensmayer.de'
+set realname = 'Jens Mayer'
+
+my_hdr Priority: normal
+my_hdr X-GnuPG-Key-URL: https://keybase.io/jens/key.asc
+my_hdr X-GnuPG-Fingerprint: 8E69 264A 0C7C 0E74 3DD4 5A06 26DA 536D E19D 7954
+my_hdr X-Operating-Sytem: Apple OS X/`/usr/bin/uname -srm`
+
+set folder = 'imaps://imap.gmail.com:993'
+set spoolfile = '+INBOX'
+set postponed ='+[Google Mail]/Drafts'
+
+set status_format="[%?M?%M/?%m msgs] %?n?%n new, ?%?p?%p postponed, ?%?t?%t +tagged, ?%?d?%d deleted, ?(mail@jensmayer.de:%f) %?b?%b more to go.?%> %r"
+
+set header_cache =~/.mutt/de.jensmayer.mail/cache/headers
+set message_cachedir =~/.mutt/de.jensmayer.mail/cache/bodies
+set certificate_file =~/.mutt/de.jensmayer.mail/certificates
+
+set signature =~/.mutt/signature.de.jensmayer.mail
+set pgp_sign_as="E19D7954"
