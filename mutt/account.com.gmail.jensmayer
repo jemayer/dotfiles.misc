@@ -19,9 +19,14 @@ set message_cachedir =~/.mutt/com.gmail.jensmayer/cache/bodies
 set certificate_file =~/.mutt/com.gmail.jensmayer/certificates
 
 set signature =~/.mutt/signature.com.gmail.jensmayer
-set pgp_sign_as="E19D7954"
 
 set hostname = "jensmayer.gmail.com"
 set sendmail = "/usr/local/bin/msmtp -a com.gmail.jensmayer"
 set sendmail_wait = 0
 unset record
+
+set pgp_sign_as="E19D7954"
+set pgp_autosign
+set pgp_replyencrypt
+set pgp_replysign
+set pgp_replysignencrypted

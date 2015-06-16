@@ -42,7 +42,6 @@ folder-hook 'account.com.jimdo.jensmayer' 'source ~/.mutt/account.com.jimdo.jens
 macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account.com.gmail.jensmayer<enter><change-folder>!<enter>'
 macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account.de.jensmayer.mail<enter><change-folder>!<enter>'
 macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/account.com.jimdo.jensmayer<enter><change-folder>!<enter>'
-bind index G imap-fetch-mail
 
 # Documentation links
 #  https://blog.bartbania.com/raspberry_pi/consolify-your-gmail-with-mutt/

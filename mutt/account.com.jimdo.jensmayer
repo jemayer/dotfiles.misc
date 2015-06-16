@@ -3,7 +3,9 @@ source ~/.mutt/credentials.com.jimdo.jensmayer
 set from = 'jens.mayer@jimdo.com'
 set realname = 'Jens Mayer'
 
-my_hdr Priority: normal
+unmy_hdr X-GnuPG-Key-URL
+unmy_hdr X-GnuPG-Fingerprint
+unmy_hdr X-Operating-Sytem
 
 set folder = 'imaps://imap.gmail.com:993'
 set spoolfile = '+INBOX'
@@ -21,3 +23,9 @@ set hostname = "mbp13-jimdo.com"
 set sendmail = "/usr/local/bin/msmtp -a com.jimdo.jensmayer"
 set sendmail_wait = 0
 unset record
+
+unset pgp_sign_as
+unset pgp_autosign
+unset pgp_replyencrypt
+unset pgp_replysign
+unset pgp_replysignencrypted

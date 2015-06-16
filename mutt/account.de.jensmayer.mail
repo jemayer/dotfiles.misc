@@ -19,9 +19,14 @@ set message_cachedir =~/.mutt/de.jensmayer.mail/cache/bodies
 set certificate_file =~/.mutt/de.jensmayer.mail/certificates
 
 set signature =~/.mutt/signature.de.jensmayer.mail
-set pgp_sign_as="E19D7954"
 
 set hostname = "jensmayer.de"
 set sendmail = "/usr/local/bin/msmtp -a de.jensmayer.mail"
 set sendmail_wait = 0
 unset record
+
+set pgp_sign_as="E19D7954"
+set pgp_autosign
+set pgp_replyencrypt
+set pgp_replysign
+set pgp_replysignencrypted
