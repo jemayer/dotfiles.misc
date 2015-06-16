@@ -11,6 +11,7 @@ set quote_regexp="^([A-Za-z ]+>|[]>:|}-][]>:|}-]*)"
 set pager_context=1
 set pager_stop
 unset markers
+unset mark_old
 
 ignore *
 unignore date from to cc subject x-mailer user-agent resent-from reply-to sender

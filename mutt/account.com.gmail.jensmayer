@@ -12,7 +12,7 @@ set folder = 'imaps://imap.gmail.com:993'
 set spoolfile = '+INBOX'
 set postponed ='+[Google Mail]/Drafts'
 
-set status_format="[%?M?%M/?%m msgs] %?n?%n new, ?%?p?%p postponed, ?%?t?%t +tagged, ?%?d?%d deleted, ?(jens.mayer@gmail.com:%f) %?b?%b more to go.?%> %r"
+set status_format="(jens.mayer@gmail.com:%f)[%?M?%M/?%m msgs] %?n?%n new, ?%?p?%p postponed, ?%?t?%t +tagged, ?%?d?%d deleted, ?%?b?%b more to go.?%> %r"
 
 set header_cache =~/.mutt/com.gmail.jensmayer/cache/headers
 set message_cachedir =~/.mutt/com.gmail.jensmayer/cache/bodies
@@ -26,6 +26,7 @@ set hostname = "jensmayer.gmail.com"
 set sendmail = "/usr/local/bin/msmtp -a com.gmail.jensmayer"
 set sendmail_wait = 0
 unset record
+unset move
 
 set pgp_sign_as="E19D7954"
 set pgp_autosign
