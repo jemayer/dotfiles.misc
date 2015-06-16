@@ -37,6 +37,7 @@ set print_command="muttprint"
 # SECURING
 set move = no  #Stop asking to move read messages to mbox!
 set imap_keepalive = 900
+set imap_check_subscribed=yes
 
 # FOLDER HOOKS
 folder-hook 'account.com.gmail.jensmayer' 'source ~/.mutt/account.com.gmail.jensmayer'
@@ -53,5 +54,6 @@ macro pager \Cu "|urlview<enter>" "call urlview to open links"
 #  http://stevelosh.com/blog/2012/10/the-homely-mutt/
 #
 # TODO
-#  - Check subfolder for new mail
 #  - Working auto_view for HTML e-mmails
+#  - Offline-IMAP (if Airmail can be configured to not cache mails itself)
+#    - mail search
