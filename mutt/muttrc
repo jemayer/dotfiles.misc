@@ -3,7 +3,8 @@ unhook *    # remove all hooks
 
 source ~/.mutt/account.com.gmail.jensmayer
 source ~/.mutt/mutt_appearance
-source ~/.mutt/mutt_colors
+# source ~/.mutt/mutt_colors
+source ~/.mutt/themes/tomorrow-night.muttrc
 source ~/.mutt/mutt_gpg
 
 set envelope_from
@@ -56,6 +57,7 @@ bind index _ collapse-all
 #  https://blog.bartbania.com/raspberry_pi/consolify-your-gmail-with-mutt/
 #  http://blog.developwithpassion.com/2013/05/02/getting-up-and-running-with-a-sane-mutt-setup/
 #  http://stevelosh.com/blog/2012/10/the-homely-mutt/
+#  https://github.com/zanshin/dotfiles/tree/master/mutt/mutt
 #
 # TODO
 #  - Working auto_view for HTML e-mmails
