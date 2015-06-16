@@ -52,7 +52,10 @@ macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/account.com.jimdo.
 macro pager \Cu "|urlview<enter>" "call urlview to open links"
 bind index - collapse-thread
 bind index _ collapse-all
-
+# Sync email
+macro index O "<shell-escape>offlineimap<enter>"           "run offlineimap to sync all mail"
+macro index o "<shell-escape>offlineimap -qf INBOX<enter>" "run offlineimap to sync inbox"
+#
 # Documentation links
 #  https://blog.bartbania.com/raspberry_pi/consolify-your-gmail-with-mutt/
 #  http://blog.developwithpassion.com/2013/05/02/getting-up-and-running-with-a-sane-mutt-setup/
