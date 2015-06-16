@@ -3,6 +3,10 @@ set tilde
 set reverse_alias
 set reverse_name
 set sort=threads
+set sort_browser="reverse-date"
+set sort_aux="last-date-received"
+unset collapse_unread
+set strict_threads="yes"
 set menu_scroll
 set read_inc=10
 set write_inc=10
@@ -10,8 +14,8 @@ set index_format="%4C %Z %{%b %d} %-15.15n (%4c) %s"
 set quote_regexp="^([A-Za-z ]+>|[]>:|}-][]>:|}-]*)"
 set pager_context=1
 set pager_stop
+set mark_old=no
 unset markers
-unset mark_old
 
 ignore *
 unignore date from to cc subject x-mailer user-agent resent-from reply-to sender

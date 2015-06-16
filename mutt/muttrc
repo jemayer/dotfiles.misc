@@ -11,6 +11,8 @@ set envelope_from
 set tmpdir=~/.mutt/tmp
 set mailcap_path=~/.mutt/mailcap
 
+set pager_index_lines=17
+
 # ENCODING
 set charset="utf-8"
 set locale=`echo "${LC_ALL:-${LC_TIME:-${LANG}}}"`
@@ -47,6 +49,8 @@ macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account.com.gmail.
 macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account.de.jensmayer.mail<enter><change-folder>!<enter>'
 macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/account.com.jimdo.jensmayer<enter><change-folder>!<enter>'
 macro pager \Cu "|urlview<enter>" "call urlview to open links"
+bind index - collapse-thread
+bind index _ collapse-all
 
 # Documentation links
 #  https://blog.bartbania.com/raspberry_pi/consolify-your-gmail-with-mutt/
