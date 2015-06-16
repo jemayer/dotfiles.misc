@@ -18,6 +18,8 @@ set header_cache =~/.mutt/de.jensmayer.mail/cache/headers
 set message_cachedir =~/.mutt/de.jensmayer.mail/cache/bodies
 set certificate_file =~/.mutt/de.jensmayer.mail/certificates
 
+set alias_file =~/.mutt/de.jensmayer.mail/aliases
+
 set signature =~/.mutt/signature.de.jensmayer.mail
 
 set hostname = "jensmayer.de"

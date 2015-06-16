@@ -18,6 +18,8 @@ set header_cache =~/.mutt/com.gmail.jensmayer/cache/headers
 set message_cachedir =~/.mutt/com.gmail.jensmayer/cache/bodies
 set certificate_file =~/.mutt/com.gmail.jensmayer/certificates
 
+set alias_file =~/.mutt/com.gmail.jensmayer/aliases
+
 set signature =~/.mutt/signature.com.gmail.jensmayer
 
 set hostname = "jensmayer.gmail.com"

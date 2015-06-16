@@ -17,6 +17,8 @@ set header_cache =~/.mutt/com.jimdo.jensmayer/cache/headers
 set message_cachedir =~/.mutt/com.jimdo.jensmayer/cache/bodies
 set certificate_file =~/.mutt/com.jimdo.jensmayer/certificates
 
+set alias_file =~/.mutt/com.jimdo.jensmayer/aliases
+
 set signature =~/.mutt/signature.com.jimdo.jensmayer
 
 set hostname = "mbp13-jimdo.com"
