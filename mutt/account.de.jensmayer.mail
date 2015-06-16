@@ -10,7 +10,8 @@ my_hdr X-Operating-Sytem: Apple OS X/`/usr/bin/uname -srm`
 
 set folder = 'imaps://imap.gmail.com:993'
 set spoolfile = '+INBOX'
-set postponed ='+[Google Mail]/Drafts'
+set postponed = '+[Gmail]/Drafts'
+set trash = '+[Gmail]/Trash'
 
 set status_format="(mail@jensmayer.de:%f)[%?M?%M/?%m msgs] %?n?%n new, ?%?p?%p postponed, ?%?t?%t +tagged, ?%?d?%d deleted, ?%?b?%b more to go.?%> %r"
 

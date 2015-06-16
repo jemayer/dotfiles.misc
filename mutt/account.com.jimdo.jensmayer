@@ -9,7 +9,8 @@ unmy_hdr X-Operating-Sytem
 
 set folder = 'imaps://imap.gmail.com:993'
 set spoolfile = '+INBOX'
-set postponed ='+[Google Mail]/Drafts'
+set postponed = '+[Gmail]/Drafts'
+set trash = '+[Gmail]/Trash'
 
 set status_format="(jens.mayer@jimdo.com:%f)[%?M?%M/?%m msgs] %?n?%n new, ?%?p?%p postponed, ?%?t?%t +tagged, ?%?d?%d deleted, ?%?b?%b more to go.?%> %r"
 
