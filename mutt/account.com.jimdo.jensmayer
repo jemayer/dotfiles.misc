@@ -5,6 +5,7 @@ unmy_hdr X-GnuPG-Key-URL
 unmy_hdr X-GnuPG-Fingerprint
 unmy_hdr X-Operating-Sytem
 
+set mbox_type=Maildir
 set folder    = "~/.mail/com.jimdo.jensmayer"
 set spoolfile = "+INBOX"
 set mbox      = "+Archive"
