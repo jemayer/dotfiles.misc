@@ -41,9 +41,9 @@ set print_command="muttprint"
 set move = no  #Stop asking to move read messages to mbox!
 
 # FOLDER HOOKS
-folder-hook 'account.com.gmail.jensmayer' 'source ~/.mutt/account.com.gmail.jensmayer'
-folder-hook 'account.de.jensmayer.mail' 'source ~/.mutt/account.de.jensmayer.mail'
-folder-hook 'account.com.jimdo.jensmayer' 'source ~/.mutt/account.com.jimdo.jensmayer'
+folder-hook '~/.mail/com.gmail.jensmayer' 'source ~/.mutt/account.com.gmail.jensmayer'
+folder-hook '~/.mail/de.jensmayer.mail' 'source ~/.mutt/account.de.jensmayer.mail'
+folder-hook '~/.mail/com.jimdo.jensmayer' 'source ~/.mutt/account.com.jimdo.jensmayer'
 macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account.com.gmail.jensmayer<enter><change-folder>!<enter>'
 macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account.de.jensmayer.mail<enter><change-folder>!<enter>'
 macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/account.com.jimdo.jensmayer<enter><change-folder>!<enter>'
