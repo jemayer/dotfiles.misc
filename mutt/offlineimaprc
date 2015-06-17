@@ -1,6 +1,6 @@
 [general]
 ui = blinkenlights
-accounts = com.gmail.jensmayer,de.jensmayer.mail
+accounts = com.gmail.jensmayer, de.jensmayer.mail
 pythonfile=~/.mutt/offlineimap.py
 fsync = False
 
@@ -15,7 +15,6 @@ nametrans = lambda folder: {'Drafts':  '[Gmail]/Drafts',
                             'Sent':    '[Gmail]/Sent Mail',
                             'Flagged': '[Gmail]/Starred',
                             'Trash':   '[Gmail]/Trash',
-                            'Archive': '[Gmail]/All Mail',
                            }.get(folder, folder)
 
 [Repository cgj-remote]
@@ -24,16 +23,20 @@ type = Gmail
 sslcacertfile=/usr/local/etc/openssl/cert.pem
 remoteuser = jens.mayer@gmail.com
 remotepasseval = get_keychain_pass(account="jens.mayer@gmail.com", server="imap.gmail.com")
-realdelete = yes
+realdelete = no
 nametrans = lambda folder: {'[Gmail]/Drafts':    'Drafts',
                             '[Gmail]/Sent Mail': 'Sent',
                             '[Gmail]/Starred':   'Flagged',
                             '[Gmail]/Trash':     'Trash',
-                            '[Gmail]/All Mail':  'Archive',
                            }.get(folder, folder)
 folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
                                              '[Gmail]/Important',
                                              '[Gmail]/Spam',
+                                             '[Gmail]/All Mail',
+                                             '[Airmail]',
+                                             '[Airmail]/Done',
+                                             '[Airmail]/Memo',
+                                             '[Airmail]/To Do',
                                              ]
 
 [Account de.jensmayer.mail]
@@ -47,7 +50,6 @@ nametrans = lambda folder: {'Drafts':  '[Gmail]/Drafts',
                             'Sent':    '[Gmail]/Sent Mail',
                             'Flagged': '[Gmail]/Starred',
                             'Trash':   '[Gmail]/Trash',
-                            'Archive': '[Gmail]/All Mail',
                            }.get(folder, folder)
 
 [Repository djm-remote]

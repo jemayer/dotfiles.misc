@@ -10,13 +10,10 @@ set folder    = "~/.mail/com.gmail.jensmayer"
 set spoolfile = "+INBOX"
 set mbox      = "+Archive"
 set postponed = "+Drafts"
-set record    = "+Sent"
+
+mailboxes `gfind ~/.mail/com.gmail.jensmayer -mindepth 1 -maxdepth 1 -type d -printf "+'%f' "`
 
 set status_format="(jens.mayer@gmail.com:%f)[%?M?%M/?%m msgs] %?n?%n new, ?%?p?%p postponed, ?%?t?%t +tagged, ?%?d?%d deleted, ?%?b?%b more to go.?%> %r"
-
-set header_cache =~/.mutt/com.gmail.jensmayer/cache/headers
-set message_cachedir =~/.mutt/com.gmail.jensmayer/cache/bodies
-set certificate_file =~/.mutt/com.gmail.jensmayer/certificates
 
 set alias_file =~/.mutt/com.gmail.jensmayer/aliases
 
