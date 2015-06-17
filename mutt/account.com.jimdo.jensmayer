@@ -6,16 +6,11 @@ unmy_hdr X-GnuPG-Fingerprint
 unmy_hdr X-Operating-Sytem
 
 set mbox_type=Maildir
-set folder    = "~/.mail/com.jimdo.jensmayer"
-set spoolfile = "+INBOX"
-set mbox      = "+Archive"
-set postponed = "+Drafts"
-
-mailboxes `gfind ~/.mail/com.jimdo.jensmayer -mindepth 1 -maxdepth 1 -type d -printf "+'%f' "`
+set spoolfile = "+com.jimdo.jensmayer/INBOX"
+set mbox      = "+com.jimdo.jensmayer/Archive"
+set postponed = "+com.jimdo.jensmayer/Drafts"
 
 set status_format="(jens.mayer@jimdo.com:%f)[%?M?%M/?%m msgs] %?n?%n new, ?%?p?%p postponed, ?%?t?%t +tagged, ?%?d?%d deleted, ?%?b?%b more to go.?%> %r"
-
-set alias_file =~/.mutt/com.jimdo.jensmayer/aliases
 
 set signature =~/.mutt/signature.com.jimdo.jensmayer
 

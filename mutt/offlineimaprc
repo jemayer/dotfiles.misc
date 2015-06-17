@@ -108,3 +108,12 @@ folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
                                              '[Airmail]/Memo',
                                              '[Airmail]/To Do',
                                              ]
+
+[mbnames]
+enabled = yes
+filename = ~/.mutt/mailboxes
+header = "mailboxes "
+peritem = "+%(accountname)s/%(foldername)s"
+sep = " "
+footer = "\n"
+

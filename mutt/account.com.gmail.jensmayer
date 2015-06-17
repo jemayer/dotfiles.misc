@@ -7,16 +7,11 @@ my_hdr X-GnuPG-Fingerprint: 8E69 264A 0C7C 0E74 3DD4 5A06 26DA 536D E19D 7954
 my_hdr X-Operating-Sytem: Apple OS X/`/usr/bin/uname -srm`
 
 set mbox_type=Maildir
-set folder    = "~/.mail/com.gmail.jensmayer"
-set spoolfile = "+INBOX"
-set mbox      = "+Archive"
-set postponed = "+Drafts"
-
-mailboxes `gfind ~/.mail/com.gmail.jensmayer -mindepth 1 -maxdepth 1 -type d -printf "+'%f' "`
+set spoolfile = "+com.gmail.jensmayer/INBOX"
+set mbox      = "+com.gmail.jensmayer/Archive"
+set postponed = "+com.gmail.jensmayer/Drafts"
 
 set status_format="(jens.mayer@gmail.com:%f)[%?M?%M/?%m msgs] %?n?%n new, ?%?p?%p postponed, ?%?t?%t +tagged, ?%?d?%d deleted, ?%?b?%b more to go.?%> %r"
-
-set alias_file =~/.mutt/com.gmail.jensmayer/aliases
 
 set signature =~/.mutt/signature.com.gmail.jensmayer
 

@@ -1,16 +1,21 @@
 reset all   # reset all variables to system defaults.
 unhook *    # remove all hooks
 
+set folder     = ~/.mail
+set alias_file = ~/.mutt/alias
+
 source ~/.mutt/account.com.gmail.jensmayer
 source ~/.mutt/mutt_appearance
-# source ~/.mutt/mutt_colors
 source ~/.mutt/themes/tomorrow-night.muttrc
 source ~/.mutt/mutt_gpg
+source ~/.mutt/mailboxes
 
 set envelope_from
 
 set tmpdir=~/.mutt/tmp
 set mailcap_path=~/.mutt/mailcap
+alternative_order text/plain text/html
+auto_view text/html
 
 set pager_index_lines=17
 
@@ -48,6 +53,7 @@ macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account.com.gmail.
 macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account.de.jensmayer.mail<enter><change-folder>!<enter>'
 macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/account.com.jimdo.jensmayer<enter><change-folder>!<enter>'
 macro pager \Cu "|urlview<enter>" "call urlview to open links"
+
 bind index - collapse-thread
 bind index _ collapse-all
 # Sync email
