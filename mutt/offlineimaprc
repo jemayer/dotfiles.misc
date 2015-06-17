@@ -55,7 +55,7 @@ nametrans = lambda folder: {'Drafts':  '[Gmail]/Drafts',
 [Repository djm-remote]
 maxconnections = 1
 type = Gmail
-cert_fingerprint = 2d3d801997e470c20896c2ebd03ec6b45a538d6d
+sslcacertfile=/usr/local/etc/openssl/cert.pem
 remoteuser = mail@jensmayer.de
 remotepasseval = get_keychain_pass(account="mail@jensmayer.de", server="imap.gmail.com")
 realdelete = no
@@ -90,7 +90,7 @@ nametrans = lambda folder: {'Drafts':  '[Gmail]/Drafts',
 [Repository cjj-remote]
 maxconnections = 1
 type = Gmail
-cert_fingerprint = 2d3d801997e470c20896c2ebd03ec6b45a538d6d
+sslcacertfile=/usr/local/etc/openssl/cert.pem
 remoteuser = jens.mayer@jimdo.com
 remotepasseval = get_keychain_pass(account="jens.mayer@jimdo.com", server="imap.gmail.com")
 realdelete = no
