@@ -1,6 +1,6 @@
 [general]
 ui = blinkenlights
-accounts = com.gmail.jensmayer, de.jensmayer.mail
+accounts = com.gmail.jensmayer, de.jensmayer.mail, com.jimdo.jensmayer
 pythonfile=~/.mutt/offlineimap.py
 fsync = False
 
@@ -63,9 +63,48 @@ nametrans = lambda folder: {'[Gmail]/Drafts':    'Drafts',
                             '[Gmail]/Sent Mail': 'Sent',
                             '[Gmail]/Starred':   'Flagged',
                             '[Gmail]/Trash':     'Trash',
-                            '[Gmail]/All Mail':  'Archive',
                            }.get(folder, folder)
 folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
                                              '[Gmail]/Important',
                                              '[Gmail]/Spam',
+                                             '[Gmail]/All Mail',
+                                             '[Airmail]',
+                                             '[Airmail]/Done',
+                                             '[Airmail]/Memo',
+                                             '[Airmail]/To Do',
+                                             ]
+
+[Account com.jimdo.jensmayer]
+localrepository = cjj-local
+remoterepository = cjj-remote
+
+[Repository cjj-local]
+type = Maildir
+localfolders = ~/.mail/com.jimdo.jensmayer
+nametrans = lambda folder: {'Drafts':  '[Gmail]/Drafts',
+                            'Sent':    '[Gmail]/Sent Mail',
+                            'Flagged': '[Gmail]/Starred',
+                            'Trash':   '[Gmail]/Trash',
+                           }.get(folder, folder)
+
+[Repository cjj-remote]
+maxconnections = 1
+type = Gmail
+cert_fingerprint = 2d3d801997e470c20896c2ebd03ec6b45a538d6d
+remoteuser = jens.mayer@jimdo.com
+remotepasseval = get_keychain_pass(account="jens.mayer@jimdo.com", server="imap.gmail.com")
+realdelete = no
+nametrans = lambda folder: {'[Gmail]/Drafts':    'Drafts',
+                            '[Gmail]/Sent Mail': 'Sent',
+                            '[Gmail]/Starred':   'Flagged',
+                            '[Gmail]/Trash':     'Trash',
+                           }.get(folder, folder)
+folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
+                                             '[Gmail]/Important',
+                                             '[Gmail]/Spam',
+                                             '[Gmail]/All Mail',
+                                             '[Airmail]',
+                                             '[Airmail]/Done',
+                                             '[Airmail]/Memo',
+                                             '[Airmail]/To Do',
                                              ]
