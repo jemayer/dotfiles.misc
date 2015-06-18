@@ -32,12 +32,19 @@ set edit_hdrs
 set date_format="!%a, %b %d, %Y at %H:%M:%S %Z"
 set attribution="* On %d, %n wrote:\n"
 
-set reply_to=ask-yes
-set fast_reply
-set include=yes
+set reply_to=ask-yes  # ask to reply to Reply to: field
+set fast_reply        # skip to compose when replying
+set include           # include message in replies
+set askcc             # ask for CC:
+set reverse_name      # reply as whomever it was to
+
+# OSX CONTACTS
+set query_command = "contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
+bind editor <Tab> complete-query
+bind editor ^T    complete
 
 # SENDING
-set allow_8bit  # Don't do any Quoted-Printable encoding on 8-bit data!
+set allow_8bit  # don't do any quoted-printable encoding on 8-bit data
 
 # FIXME: PRINTING
 set print=ask-no
