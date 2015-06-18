@@ -7,6 +7,7 @@ fsync = False
 [Account com.gmail.jensmayer]
 localrepository = cgj-local
 remoterepository = cgj-remote
+status_backend = sqlite
 
 [Repository cgj-local]
 type = Maildir
@@ -42,6 +43,7 @@ folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
 [Account de.jensmayer.mail]
 localrepository = djm-local
 remoterepository = djm-remote
+status_backend = sqlite
 
 [Repository djm-local]
 type = Maildir
@@ -77,6 +79,7 @@ folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
 [Account com.jimdo.jensmayer]
 localrepository = cjj-local
 remoterepository = cjj-remote
+status_backend = sqlite
 
 [Repository cjj-local]
 type = Maildir
