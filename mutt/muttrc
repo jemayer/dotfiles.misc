@@ -71,3 +71,4 @@ macro index o "<shell-escape>offlineimap -qf INBOX<enter>" "run offlineimap to s
 #  - Working auto_view for HTML e-mmails
 #  - Offline-IMAP (if Airmail can be configured to not cache mails itself)
 #    - mail search
+#  - Alias files handling / adressbook

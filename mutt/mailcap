@@ -1,21 +1,22 @@
 # MS Word Documents
-application/msword; ~/.mutt/view_mail_attachment.sh %s "-" '/Applications/TextEdit.app'
+application/msword;   ~/.mutt/view_mail_attachment.sh %s "-" '/Applications/TextEdit.app'
 
 # Images
-image/jpg; ~/.mutt/view_mail_attachment.sh %s jpg
-image/jpeg; ~/.mutt/view_mail_attachment.sh %s jpg
-image/pjpeg; ~/.mutt/view_mail_attachment.sh %s jpg
-image/png; ~/.mutt/view_mail_attachment.sh %s png
-image/gif; ~/.mutt/view_mail_attachment.sh %s gif
+image/jpg;    ~/.mutt/view_mail_attachment.sh %s jpg
+image/jpeg;   ~/.mutt/view_mail_attachment.sh %s jpg
+image/pjpeg;  ~/.mutt/view_mail_attachment.sh %s jpg
+image/png;    ~/.mutt/view_mail_attachment.sh %s png
+image/gif;    ~/.mutt/view_mail_attachment.sh %s gif
 
 # PDFs
-application/pdf; ~/.mutt/view_mail_attachment.sh %s pdf
+application/pdf;  ~/.mutt/view_mail_attachment.sh %s pdf
 
-# HTML
-text/html; ~/.mutt/view_mail_attachment.sh %s html
+# Render HTML inline (mutt auto_view)
+text/html;  links %s; nametemplate=%s.html
+text/html;  links -dump %s; nametemplate=%s.html; copiousoutput
 
 # RTF
-text/rtf; ~/.mutt/view_mail_attachment.sh %s rtf
+text/rtf;   ~/.mutt/view_mail_attachment.sh %s rtf
 
 # Unidentified files
-application/octet-stream; ~/.mutt/view_mail_attachment.sh %s "-"
+application/octet-stream;   ~/.mutt/view_mail_attachment.sh %s "-"
