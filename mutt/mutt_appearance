@@ -3,7 +3,8 @@ set tilde
 set reverse_alias
 set reverse_name
 set sort=threads
-set sort_browser="reverse-date"
+set sort_alias="alias"
+set sort_browser="alpha"
 set sort_aux="last-date-received"
 unset collapse_unread
 set strict_threads="yes"
