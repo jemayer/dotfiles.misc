@@ -2,7 +2,8 @@ reset all   # reset all variables to system defaults.
 unhook *    # remove all hooks
 
 set folder     = ~/.mail
-set alias_file = ~/.mutt/alias
+set alias_file = ~/.mutt/aliases
+source $alias_file
 
 source ~/.mutt/account.com.gmail.jensmayer
 source ~/.mutt/mutt_appearance
@@ -68,7 +69,4 @@ macro index o "<shell-escape>offlineimap -qf INBOX<enter>" "run offlineimap to s
 #  http://baptiste-wicht.com/posts/2014/07/a-mutt-journey-my-mutt-configuration.html
 #
 # TODO
-#  - Working auto_view for HTML e-mmails
-#  - Offline-IMAP (if Airmail can be configured to not cache mails itself)
-#    - mail search
-#  - Alias files handling / adressbook
+#  - mail search
