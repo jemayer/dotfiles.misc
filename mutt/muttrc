@@ -65,6 +65,9 @@ macro pager \Cu "|urlview<enter>" "call urlview to open links"
 
 bind index - collapse-thread
 bind index _ collapse-all
+bind index N search-opposite
+bind pager N search-opposite
+
 # Sync email
 macro index O "<shell-escape>offlineimap<enter>"           "run offlineimap to sync all mail"
 macro index o "<shell-escape>offlineimap -qf INBOX<enter>" "run offlineimap to sync inbox"
