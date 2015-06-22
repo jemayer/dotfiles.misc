@@ -1,21 +1,22 @@
-# MS Office files
-application/msword; ~/.mutt/view_mail_attachment.rb --file:%s --type:"-" --open_with:'/Applications/OpenOffice.org.app'
-application/vnd.ms-excel; ~/.mutt/view_mail_attachment.rb --file:%s --type:"-"
-application/vnd.openxmlformats-officedocument.presentationml.presentation; ~/.mutt/view_mail_attachment.rb --file:%s --type:"-" --open_with:'/Applications/OpenOffice.org.app'
-application/vnd.oasis.opendocument.text; ~/.mutt/view_mail_attachment.rb --file:%s --type:"-" --open_with:'/Applications/OpenOffice.org.app'
+# MS Word Documents
+application/msword;   ~/.mutt/view_mail_attachment.sh %s "-" '/Applications/TextEdit.app'
 
 # Images
-image/jpg; ~/.mutt/view_mail_attachment.rb --file:%s --type:jpg
-image/jpeg; ~/.mutt/view_mail_attachment.rb --file:%s --type:jpg
-image/pjpeg; ~/.mutt/view_mail_attachment.rb --file:%s --type:jpg
-image/png; ~/.mutt/view_mail_attachment.rb --file:%s --type:png
-image/gif; ~/.mutt/view_mail_attachment.rb --file:%s --type:gif
+image/jpg;    ~/.mutt/view_mail_attachment.sh %s jpg
+image/jpeg;   ~/.mutt/view_mail_attachment.sh %s jpg
+image/pjpeg;  ~/.mutt/view_mail_attachment.sh %s jpg
+image/png;    ~/.mutt/view_mail_attachment.sh %s png
+image/gif;    ~/.mutt/view_mail_attachment.sh %s gif
 
 # PDFs
-application/pdf; ~/.mutt/view_mail_attachment.rb --file:%s --type:pdf
+application/pdf;  ~/.mutt/view_mail_attachment.sh %s pdf
 
-# HTML
-text/html; ~/.mutt/view_mail_attachment.rb --file:%s --type:html
+# Render HTML inline (mutt auto_view)
+text/html;  links %s; nametemplate=%s.html
+text/html;  links -dump %s; nametemplate=%s.html; copiousoutput
+
+# RTF
+text/rtf;   ~/.mutt/view_mail_attachment.sh %s rtf
 
 # Unidentified files
-application/octet-stream; ~/.mutt/view_mail_attachment.rb --file:%s --type:"-"
+application/octet-stream;   ~/.mutt/view_mail_attachment.sh %s "-"

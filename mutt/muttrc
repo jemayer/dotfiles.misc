@@ -1,16 +1,23 @@
 reset all   # reset all variables to system defaults.
 unhook *    # remove all hooks
 
+set folder     = ~/.mail
+set alias_file = ~/.mutt/aliases
+source $alias_file
+
 source ~/.mutt/account.com.gmail.jensmayer
 source ~/.mutt/mutt_appearance
-# source ~/.mutt/mutt_colors
 source ~/.mutt/themes/tomorrow-night.muttrc
 source ~/.mutt/mutt_gpg
+source ~/.mutt/mailboxes
 
 set envelope_from
 
+set pipe_decode
 set tmpdir=~/.mutt/tmp
 set mailcap_path=~/.mutt/mailcap
+alternative_order text/plain text/html
+auto_view text/html
 
 set pager_index_lines=17
 
@@ -26,12 +33,19 @@ set edit_hdrs
 set date_format="!%a, %b %d, %Y at %H:%M:%S %Z"
 set attribution="* On %d, %n wrote:\n"
 
-set reply_to=ask-yes
-set fast_reply
-set include=yes
+set reply_to=ask-yes  # ask to reply to Reply to: field
+set fast_reply        # skip to compose when replying
+set include           # include message in replies
+set askcc             # ask for CC:
+set reverse_name      # reply as whomever it was to
+
+# OSX CONTACTS
+set query_command = "contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
+bind editor <Tab> complete-query
+bind editor ^T    complete
 
 # SENDING
-set allow_8bit  # Don't do any Quoted-Printable encoding on 8-bit data!
+set allow_8bit  # don't do any quoted-printable encoding on 8-bit data
 
 # FIXME: PRINTING
 set print=ask-no
@@ -39,27 +53,37 @@ set print_command="muttprint"
 
 # SECURING
 set move = no  #Stop asking to move read messages to mbox!
-set imap_keepalive = 900
-set imap_check_subscribed=yes
 
 # FOLDER HOOKS
-folder-hook 'account.com.gmail.jensmayer' 'source ~/.mutt/account.com.gmail.jensmayer'
-folder-hook 'account.de.jensmayer.mail' 'source ~/.mutt/account.de.jensmayer.mail'
-folder-hook 'account.com.jimdo.jensmayer' 'source ~/.mutt/account.com.jimdo.jensmayer'
+folder-hook '~/.mail/com.gmail.jensmayer' 'source ~/.mutt/account.com.gmail.jensmayer'
+folder-hook '~/.mail/de.jensmayer.mail' 'source ~/.mutt/account.de.jensmayer.mail'
+folder-hook '~/.mail/com.jimdo.jensmayer' 'source ~/.mutt/account.com.jimdo.jensmayer'
 macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account.com.gmail.jensmayer<enter><change-folder>!<enter>'
 macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account.de.jensmayer.mail<enter><change-folder>!<enter>'
 macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/account.com.jimdo.jensmayer<enter><change-folder>!<enter>'
 macro pager \Cu "|urlview<enter>" "call urlview to open links"
+
 bind index - collapse-thread
 bind index _ collapse-all
+bind index N search-opposite
+bind pager N search-opposite
 
+# Sync email
+macro index O "<shell-escape>offlineimap<enter>"           "run offlineimap to sync all mail"
+macro index o "<shell-escape>offlineimap -qf INBOX<enter>" "run offlineimap to sync inbox"
+#
 # Documentation links
 #  https://blog.bartbania.com/raspberry_pi/consolify-your-gmail-with-mutt/
 #  http://blog.developwithpassion.com/2013/05/02/getting-up-and-running-with-a-sane-mutt-setup/
 #  http://stevelosh.com/blog/2012/10/the-homely-mutt/
 #  https://github.com/zanshin/dotfiles/tree/master/mutt/mutt
+#  http://baptiste-wicht.com/posts/2014/07/a-mutt-journey-my-mutt-configuration.html
 #
 # TODO
-#  - Working auto_view for HTML e-mmails
-#  - Offline-IMAP (if Airmail can be configured to not cache mails itself)
-#    - mail search
+#  - mail search
+# DEPENDENCIES (installed via Homebrew)
+#  - contacts       http://www.gnufoo.org/contacts/contacts.html
+#  - gnupg          https://www.gnupg.org/
+#  - msmtp          http://msmtp.sourceforge.net
+#  - offline-imap   http://offlineimap.org/
+#  - urlview        https://packages.debian.org/sid/misc/urlview

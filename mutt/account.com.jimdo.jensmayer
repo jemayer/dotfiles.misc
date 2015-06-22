@@ -1,5 +1,3 @@
-source ~/.mutt/credentials.com.jimdo.jensmayer
-
 set from = 'jens.mayer@jimdo.com'
 set realname = 'Jens Mayer'
 
@@ -7,18 +5,12 @@ unmy_hdr X-GnuPG-Key-URL
 unmy_hdr X-GnuPG-Fingerprint
 unmy_hdr X-Operating-Sytem
 
-set folder = 'imaps://imap.gmail.com:993'
-set spoolfile = '+INBOX'
-set postponed = '+[Gmail]/Drafts'
-set trash = '+[Gmail]/Trash'
+set mbox_type=Maildir
+set spoolfile = "+com.jimdo.jensmayer/INBOX"
+set mbox      = "+com.jimdo.jensmayer/Archive"
+set postponed = "+com.jimdo.jensmayer/Drafts"
 
 set status_format="(jens.mayer@jimdo.com:%f)[%?M?%M/?%m msgs] %?n?%n new, ?%?p?%p postponed, ?%?t?%t +tagged, ?%?d?%d deleted, ?%?b?%b more to go.?%> %r"
-
-set header_cache =~/.mutt/com.jimdo.jensmayer/cache/headers
-set message_cachedir =~/.mutt/com.jimdo.jensmayer/cache/bodies
-set certificate_file =~/.mutt/com.jimdo.jensmayer/certificates
-
-set alias_file =~/.mutt/com.jimdo.jensmayer/aliases
 
 set signature =~/.mutt/signature.com.jimdo.jensmayer
 

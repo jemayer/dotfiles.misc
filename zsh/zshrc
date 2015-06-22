@@ -67,3 +67,9 @@ if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
   export WORKON_HOME=$HOME/.virtualenvs
   source /usr/local/bin/virtualenvwrapper.sh
 fi
+
+# Boot2Docker
+# FIXME: This can be down in a more sane way
+if [ -x /usr/local/bin/boot2docker ]; then
+  eval "$(boot2docker shellinit 2>/dev/null)"
+fi

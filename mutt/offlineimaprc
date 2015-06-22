@@ -1,37 +1,122 @@
 [general]
 ui = blinkenlights
-accounts = com.gmail.jensmayer
+accounts = com.gmail.jensmayer, de.jensmayer.mail, com.jimdo.jensmayer
 pythonfile=~/.mutt/offlineimap.py
 fsync = False
 
 [Account com.gmail.jensmayer]
 localrepository = cgj-local
 remoterepository = cgj-remote
+status_backend = sqlite
 
 [Repository cgj-local]
 type = Maildir
 localfolders = ~/.mail/com.gmail.jensmayer
-nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
-                            'sent':    '[Gmail]/Sent Mail',
-                            'flagged': '[Gmail]/Starred',
-                            'trash':   '[Gmail]/Trash',
-                            'archive': '[Gmail]/All Mail',
+nametrans = lambda folder: {'Drafts':  '[Gmail]/Drafts',
+                            'Sent':    '[Gmail]/Sent Mail',
+                            'Flagged': '[Gmail]/Starred',
+                            'Trash':   '[Gmail]/Trash',
                            }.get(folder, folder)
 
 [Repository cgj-remote]
 maxconnections = 1
 type = Gmail
-cert_fingerprint = 2d3d801997e470c20896c2ebd03ec6b45a538d6d 
+sslcacertfile=/usr/local/etc/openssl/cert.pem
 remoteuser = jens.mayer@gmail.com
 remotepasseval = get_keychain_pass(account="jens.mayer@gmail.com", server="imap.gmail.com")
 realdelete = no
-nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
-                            '[Gmail]/Sent Mail': 'sent',
-                            '[Gmail]/Starred':   'flagged',
-                            '[Gmail]/Trash':     'trash',
-                            '[Gmail]/All Mail':  'archive',
+nametrans = lambda folder: {'[Gmail]/Drafts':    'Drafts',
+                            '[Gmail]/Sent Mail': 'Sent',
+                            '[Gmail]/Starred':   'Flagged',
+                            '[Gmail]/Trash':     'Trash',
                            }.get(folder, folder)
 folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
                                              '[Gmail]/Important',
                                              '[Gmail]/Spam',
+                                             '[Gmail]/All Mail',
+                                             '[Airmail]',
+                                             '[Airmail]/Done',
+                                             '[Airmail]/Memo',
+                                             '[Airmail]/To Do',
                                              ]
+
+[Account de.jensmayer.mail]
+localrepository = djm-local
+remoterepository = djm-remote
+status_backend = sqlite
+
+[Repository djm-local]
+type = Maildir
+localfolders = ~/.mail/de.jensmayer.mail
+nametrans = lambda folder: {'Drafts':  '[Gmail]/Drafts',
+                            'Sent':    '[Gmail]/Sent Mail',
+                            'Flagged': '[Gmail]/Starred',
+                            'Trash':   '[Gmail]/Trash',
+                           }.get(folder, folder)
+
+[Repository djm-remote]
+maxconnections = 1
+type = Gmail
+sslcacertfile=/usr/local/etc/openssl/cert.pem
+remoteuser = mail@jensmayer.de
+remotepasseval = get_keychain_pass(account="mail@jensmayer.de", server="imap.gmail.com")
+realdelete = no
+nametrans = lambda folder: {'[Gmail]/Drafts':    'Drafts',
+                            '[Gmail]/Sent Mail': 'Sent',
+                            '[Gmail]/Starred':   'Flagged',
+                            '[Gmail]/Trash':     'Trash',
+                           }.get(folder, folder)
+folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
+                                             '[Gmail]/Important',
+                                             '[Gmail]/Spam',
+                                             '[Gmail]/All Mail',
+                                             '[Airmail]',
+                                             '[Airmail]/Done',
+                                             '[Airmail]/Memo',
+                                             '[Airmail]/To Do',
+                                             ]
+
+[Account com.jimdo.jensmayer]
+localrepository = cjj-local
+remoterepository = cjj-remote
+status_backend = sqlite
+
+[Repository cjj-local]
+type = Maildir
+localfolders = ~/.mail/com.jimdo.jensmayer
+nametrans = lambda folder: {'Drafts':  '[Gmail]/Drafts',
+                            'Sent':    '[Gmail]/Sent Mail',
+                            'Flagged': '[Gmail]/Starred',
+                            'Trash':   '[Gmail]/Trash',
+                           }.get(folder, folder)
+
+[Repository cjj-remote]
+maxconnections = 1
+type = Gmail
+sslcacertfile=/usr/local/etc/openssl/cert.pem
+remoteuser = jens.mayer@jimdo.com
+remotepasseval = get_keychain_pass(account="jens.mayer@jimdo.com", server="imap.gmail.com")
+realdelete = no
+nametrans = lambda folder: {'[Gmail]/Drafts':    'Drafts',
+                            '[Gmail]/Sent Mail': 'Sent',
+                            '[Gmail]/Starred':   'Flagged',
+                            '[Gmail]/Trash':     'Trash',
+                           }.get(folder, folder)
+folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
+                                             '[Gmail]/Important',
+                                             '[Gmail]/Spam',
+                                             '[Gmail]/All Mail',
+                                             '[Airmail]',
+                                             '[Airmail]/Done',
+                                             '[Airmail]/Memo',
+                                             '[Airmail]/To Do',
+                                             ]
+
+[mbnames]
+enabled = yes
+filename = ~/.mutt/mailboxes
+header = "mailboxes "
+peritem = "+%(accountname)s/%(foldername)s"
+sep = " "
+footer = "\n"
+
