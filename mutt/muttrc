@@ -81,3 +81,9 @@ macro index o "<shell-escape>offlineimap -qf INBOX<enter>" "run offlineimap to s
 #
 # TODO
 #  - mail search
+# DEPENDENCIES (installed via Homebrew)
+#  - contacts       http://www.gnufoo.org/contacts/contacts.html
+#  - gnupg          https://www.gnupg.org/
+#  - msmtp          http://msmtp.sourceforge.net
+#  - offline-imap   http://offlineimap.org/
+#  - urlview        https://packages.debian.org/sid/misc/urlview
