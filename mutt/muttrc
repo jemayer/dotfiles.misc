@@ -13,6 +13,7 @@ source ~/.mutt/mailboxes
 
 set envelope_from
 
+set pipe_decode
 set tmpdir=~/.mutt/tmp
 set mailcap_path=~/.mutt/mailcap
 alternative_order text/plain text/html
