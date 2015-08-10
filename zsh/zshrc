@@ -57,7 +57,8 @@ export PATH
 # Requires "zsh-syntax-highlighting" from Homebrew
 [[ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && \
   source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
+[[ -f $HOME/Repositories/git/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] &&
+  source $HOME/Repositories/git/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Amazon AWS CLI tool autocompletion
 [[ -f /usr/local/share/zsh/site-functions/_aws ]] && \
   source /usr/local/share/zsh/site-functions/_aws
