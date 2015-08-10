@@ -50,7 +50,7 @@ prompt_dir() {
 if [ $(uname) = "Darwin" ] ; then
   PATH=$(brew --prefix homebrew/php/php56):$PATH:/usr/local/opt/go/libexec/bin
 elif [ $(uname) = "Linux" ] ; then
-  PATH=$PATH:/usr/local/go/bin
+  [ -f /usr/local/go/bin ] && PATH=$PATH:/usr/local/go/bin
 fi
 export PATH
 
