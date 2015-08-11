@@ -9,7 +9,8 @@
 
 # ZSH framework configuration
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="agnoster"
+# Look for custom theme configuration, fall back to "agnoster"
+[ -f $HOME/.zsh_theme ] && source $HOME/.zsh_theme || ZSH_THEME="agnoster"
 
 plugins=(brew bundler chruby colored-man git screen vagrant)
 
