@@ -1,23 +1,24 @@
 reset all   # reset all variables to system defaults.
 unhook *    # remove all hooks
 
-set folder     = ~/.mail
-set alias_file = ~/.mutt/aliases
-source $alias_file
+set folder     = ~/.mail            # mailbox folder location
 
-source ~/.mutt/account.com.gmail.jensmayer
+set alias_file = ~/.mutt/aliases    # where to store aliases
+source $alias_file                  # load aliases
+
+source ~/.mutt/account.com.gmail.jensmayer    # set as default account
 source ~/.mutt/mutt_appearance
-source ~/.mutt/themes/tomorrow-night.muttrc
-source ~/.mutt/mutt_gpg
-source ~/.mutt/mailboxes
+source ~/.mutt/themes/tomorrow-night.muttrc   # mutt theme
+source ~/.mutt/mutt_gpg                       # GnuPG settings
+source ~/.mutt/mailboxes                      # mailboxes to check
 
 set envelope_from
 
-set pipe_decode
+set pipe_decode                         # strip headers and eval mimes when piping
 set tmpdir=~/.mutt/tmp
-set mailcap_path=~/.mutt/mailcap
-alternative_order text/plain text/html
-auto_view text/html
+set mailcap_path=~/.mutt/mailcap        # entries for filetypes
+alternative_order text/plain text/html  # prefer plain text over HTML
+auto_view text/html                     # auto view HTML with mailcap handler
 
 set pager_index_lines=17
 
