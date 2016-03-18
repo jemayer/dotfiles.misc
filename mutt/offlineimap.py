@@ -8,7 +8,7 @@ def get_keychain_pass(account=None, server=None):
         'command': 'find-internet-password',
         'account': account,
         'server': server,
-        'keychain': '/Users/jmayer/Library/Keychains/login.keychain',
+        'keychain': '/Users/jemayer/Library/Keychains/login.keychain',
     }
 
     command = "%(security)s -v %(command)s -g -a %(account)s -s %(server)s %(keychain)s" %params
