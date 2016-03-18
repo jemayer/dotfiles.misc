@@ -3,7 +3,7 @@
 		  email = mail@jensmayer.de
 
 [core]
-		  whitespace = trailing-space,space-before-tab,indent-with-non-tab
+		  whitespace = trailing-space,space-before-tab
 		  autocrlf = input
 		  repositoryformatversion = 0
 		  filemode = true
