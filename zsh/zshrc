@@ -43,6 +43,97 @@ prompt_dir() {
   prompt_segment blue black $(directory_name)
 }
 
+# Display Battery Level
+# Note: This needs a suitable ZSH theme!
+prompt_battery() {
+  HEART='♥ '
+
+  if [[ $(uname) == "Darwin" ]] ; then
+
+    function battery_is_charging() {
+      [ $(ioreg -rc AppleSmartBattery | grep -c '^.*"ExternalConnected"\ =\ No') -eq 1 ]
+    }
+
+    function battery_pct() {
+      local smart_battery_status="$(ioreg -rc "AppleSmartBattery")"
+      typeset -F maxcapacity=$(echo $smart_battery_status | grep '^.*"MaxCapacity"\ =\ ' | sed -e 's/^.*"MaxCapacity"\ =\ //')
+      typeset -F currentcapacity=$(echo $smart_battery_status | grep '^.*"CurrentCapacity"\ =\ ' | sed -e 's/^.*CurrentCapacity"\ =\ //')
+      integer i=$(((currentcapacity/maxcapacity) * 100))
+      echo $i
+    }
+
+    function battery_pct_remaining() {
+      if battery_is_charging ; then
+        battery_pct
+      else
+        echo "External Power"
+      fi
+    }
+
+    function battery_time_remaining() {
+      local smart_battery_status="$(ioreg -rc "AppleSmartBattery")"
+      if [[ $(echo $smart_battery_status | grep -c '^.*"ExternalConnected"\ =\ No') -eq 1 ]] ; then
+        timeremaining=$(echo $smart_battery_status | grep '^.*"AvgTimeToEmpty"\ =\ ' | sed -e 's/^.*"AvgTimeToEmpty"\ =\ //')
+        if [ $timeremaining -gt 720 ] ; then
+          echo "::"
+        else
+          echo "~$((timeremaining / 60)):$((timeremaining % 60))"
+        fi
+      fi
+    }
+
+    b=$(battery_pct_remaining)
+    if [[ $(ioreg -rc AppleSmartBattery | grep -c '^.*"ExternalConnected"\ =\ No') -eq 1 ]] ; then
+    	if [ $b -gt 50 ] ; then
+      	echo -n "%{$fg_bold[green]%}$HEART$(battery_pct_remaining)%%%{$fg_no_bold[white]%} "
+			elif [ $b -gt 20 ] ; then
+      	echo -n "%{$fg_bold[yellow]%}$HEART$(battery_pct_remaining)%%%{$fg_no_bold[white]%} "
+			else
+				echo -n "%{$fg_bold[red]%}$HEART$(battery_pct_remaining)%%%{$fg_no_bold[white]%} "
+			fi
+    fi
+  fi
+
+  if [[ $(uname) == "Linux" && -d /sys/module/battery ]] ; then
+
+    function battery_is_charging() {
+      ! [[ $(acpi 2&>/dev/null | grep -c '^Battery.*Discharging') -gt 0 ]]
+    }
+
+    function battery_pct() {
+      if (( $+commands[acpi] )) ; then
+        echo "$(acpi | cut -f2 -d ',' | tr -cd '[:digit:]')"
+      fi
+    }
+
+    function battery_pct_remaining() {
+      if [ ! $(battery_is_charging) ] ; then
+        battery_pct
+      else
+        echo "External Power"
+      fi
+    }
+
+    function battery_time_remaining() {
+      if [[ $(acpi 2&>/dev/null | grep -c '^Battery.*Discharging') -gt 0 ]] ; then
+        echo $(acpi | cut -f3 -d ',')
+      fi
+    }
+
+    b=$(battery_pct_remaining)
+    if [[ $(acpi 2&>/dev/null | grep -c '^Battery.*Discharging') -gt 0 ]] ; then
+    	if [ $b -gt 50 ] ; then
+      	echo -n "%{$fg_bold[green]%}$HEART$(battery_pct_remaining)%%%{$fg_no_bold[white]%} "
+			elif [ $b -gt 20 ] ; then
+      	echo -n "%{$fg_bold[yellow]%}$HEART$(battery_pct_remaining)%%%{$fg_no_bold[white]%} "
+			else
+				echo -n "%{$fg_bold[red]%}$HEART$(battery_pct_remaining)%%%{$fg_no_bold[white]%} "
+			fi
+    fi
+
+  fi
+}
+
 # Note: ZSH $PATH configuration on OSX is a bit tricky, see:
 # - /etc/paths, /etc/paths.d
 # - http://stackoverflow.com/questions/13708719/vim-path-configuration-in-os-x
