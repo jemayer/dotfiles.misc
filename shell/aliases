@@ -50,3 +50,6 @@ alias la='ls -al'
 # Default SSH
 alias s='ssh -p 22'
 alias ..='cd ..'
+
+# Kindness
+alias please='sudo'
